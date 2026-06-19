@@ -1,6 +1,7 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Award, Car, Wallet, Medal, Clock, MessageSquare, PhoneCall, MapPin, Mail } from "lucide-react";
+import { Award, Car, Clock, Mail, MapPin, Medal, MessageSquare, PhoneCall, Wallet } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const routeCards = [
   {
@@ -34,14 +35,14 @@ const popularTags = [
 ];
 
 const fleetData = [
-  { imageText: "HIACE", title: "Hiace Premio", capacity: "14 ORANG", desc: "Fasilitas AC Single, Kursi Reclining, Audio & Video." },
-  { imageText: "PREMIO", title: "Hiace Commuter", capacity: "14 ORANG", desc: "Layanan shuttle premium dengan kabin lega." },
-  { imageText: "HIACE LUXURY", title: "Innova Reborn", capacity: "8 ORANG", desc: "Nyaman dan bertenaga untuk perjalanan keluarga." },
-  { imageText: "ZENIX", title: "New Avanza", capacity: "6 ORANG", desc: "Unit hemat dan handal untuk rute antarkota." },
-  { imageText: "NEW AVANZA", title: "Luxury Hiace", capacity: "8 ORANG", desc: "Interior mewah VIP dengan Captain Seat." },
-  { imageText: "REBORN", title: "ELF Giga", capacity: "19 ORANG", desc: "Kapasitas besar untuk rombongan wisata." },
-  { imageText: "ALPHARD", title: "Box Truck", capacity: "CARGO", desc: "Layanan ekspedisi barang volume besar." },
-  { imageText: "LUXIO", title: "Medium Bus", capacity: "31 ORANG", desc: "Bus pariwisata medium dengan seat nyaman." },
+  { image: "/assets/bagian_9.png", imageText: "HIACE", title: "Hiace Luxury", capacity: "14 ORANG", desc: "Fasilitas AC Single, Kursi Reclining, Audio & Video." },
+  { image: "/assets/bagian_10.png", imageText: "INNOVA", title: "Innova Zenix", capacity: "14 ORANG", desc: "Layanan shuttle premium dengan kabin lega." },
+  { image: "/assets/bagian_11.png", imageText: "LUXIO", title: "Luxio", capacity: "8 ORANG", desc: "Nyaman dan bertenaga untuk perjalanan keluarga." },
+  { image: "/assets/bagian_12.png", imageText: "HIACE", title: "HIACE", capacity: "6 ORANG", desc: "Unit hemat dan handal untuk rute antarkota." },
+  { image: "/assets/bagian_13.png", imageText: "LUXURY HIACE PREMIO", title: "Luxury Hiace Premio", capacity: "8 ORANG", desc: "Interior mewah VIP dengan Captain Seat." },
+  { image: "/assets/bagian_14.png", imageText: "NEW AVANZA", title: "New Avanza", capacity: "7 ORANG", desc: "Kapasitas besar untuk rombongan wisata." },
+  { image: "/assets/bagian_15.png", imageText: "REBORN", title: "Reborn", desc: "Layanan ekspedisi barang volume besar." },
+  { image: "/assets/bagian_16.png", imageText: "ALPHARD", title: "Alphard", capacity: "31 ORANG", desc: "Bus pariwisata medium dengan seat nyaman." },
 ];
 
 export default function Home() {
@@ -112,23 +113,20 @@ export default function Home() {
         </div>
 
         {/* Right Content / Image Area */}
-        <div className="relative w-full aspect-[4/3] lg:aspect-[4/3] mt-10 lg:mt-0">
+        <div className="relative w-full aspect-square mt-10 lg:mt-0">
           <div className="absolute inset-0 bg-white rounded-lg shadow-2xl overflow-hidden p-2">
-            <div className="w-full h-full bg-slate-50 rounded-md flex flex-col items-center justify-center border border-slate-100 relative overflow-hidden">
-               <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-               <div className="flex flex-col items-center z-10 drop-shadow-sm">
-                 <h3 className="text-4xl md:text-5xl font-black text-[#1E293B] tracking-[0.2em] mb-1 text-center" style={{ textShadow: '2px 2px 0px #FBBF24' }}>JENDRAL</h3>
-                 <h4 className="text-xl md:text-2xl font-bold text-slate-600 tracking-[0.4em] text-center">TRAVEL</h4>
-               </div>
-               
-               {/* Mockup decorative elements to mimic the original image's silhouette city/clouds */}
-               <div className="absolute bottom-0 w-full h-1/3 bg-gradient-to-t from-slate-200/80 to-transparent flex items-end justify-center pb-4">
-                 <p className="text-xs text-slate-400 font-medium">Image Placeholder</p>
-               </div>
+            <div className="w-full h-full bg-slate-50 rounded-md relative overflow-hidden">
+               <Image 
+                 src="/assets/bagian_5.png" 
+                 alt="Jendral Travel Hero Banner" 
+                 fill
+                 className="object-cover"
+                 priority
+               />
             </div>
           </div>
           
-          <div className="absolute -inset-4 bg-gradient-to-tr from-yellow-500/10 to-blue-500/10 rounded-[1.5rem] blur-2xl -z-10"></div>
+          <div className="absolute -inset-4 bg-linear-to-tr from-yellow-500/10 to-blue-500/10 rounded-[1.5rem] blur-2xl -z-10"></div>
         </div>
 
       </main>
@@ -151,7 +149,7 @@ export default function Home() {
             {/* Card 1: Travel Reguler */}
             <div className="bg-[#1A1A1A] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-yellow-500/30 transition-colors">
               <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-6 border border-yellow-500/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M12 5v14"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Travel Icon</title><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M12 5v14"/></svg>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Travel Reguler</h3>
               <p className="text-slate-400 text-sm mb-8 min-h-[60px]">
@@ -159,18 +157,18 @@ export default function Home() {
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Door to Door / Shuttle</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Free Makan & Minum</span>
                 </div>
               </div>
               <Button className="w-full bg-transparent hover:bg-yellow-500 hover:text-black border border-yellow-500 text-yellow-500 rounded-full transition-colors">
                 Lihat Detail
               </Button>
-              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/[0.02] uppercase pointer-events-none group-hover:text-white/[0.04] transition-colors">
+              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/2 uppercase pointer-events-none group-hover:text-white/4 transition-colors">
                 Reguler
               </div>
             </div>
@@ -178,7 +176,7 @@ export default function Home() {
             {/* Card 2: Carter Drop / PP */}
             <div className="bg-[#1A1A1A] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-yellow-500/30 transition-colors">
               <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-6 border border-yellow-500/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Carter Icon</title><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Carter Drop / PP</h3>
               <p className="text-slate-400 text-sm mb-8 min-h-[60px]">
@@ -186,18 +184,18 @@ export default function Home() {
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Waktu Fleksibel</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Private Journey</span>
                 </div>
               </div>
               <Button className="w-full bg-transparent hover:bg-yellow-500 hover:text-black border border-yellow-500 text-yellow-500 rounded-full transition-colors">
                 Lihat Detail
               </Button>
-              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/[0.02] uppercase pointer-events-none group-hover:text-white/[0.04] transition-colors">
+              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/2 uppercase pointer-events-none group-hover:text-white/4 transition-colors">
                 Carter
               </div>
             </div>
@@ -205,7 +203,7 @@ export default function Home() {
             {/* Card 3: Ekspedisi Barang */}
             <div className="bg-[#1A1A1A] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-yellow-500/30 transition-colors">
               <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-6 border border-yellow-500/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v5c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Ekspedisi Icon</title><path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"/><path d="M14 9h4l4 4v5c0 .6-.4 1-1 1h-2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Ekspedisi Barang</h3>
               <p className="text-slate-400 text-sm mb-8 min-h-[60px]">
@@ -213,18 +211,18 @@ export default function Home() {
               </p>
               <div className="space-y-3 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Same Day Service</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="mt-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                  <div className="mt-0.5"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500"><title>Check Icon</title><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
                   <span className="text-xs font-semibold text-slate-300">Keamanan Terjamin</span>
                 </div>
               </div>
               <Button className="w-full bg-transparent hover:bg-yellow-500 hover:text-black border border-yellow-500 text-yellow-500 rounded-full transition-colors">
                 Lihat Detail
               </Button>
-              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/[0.02] uppercase pointer-events-none group-hover:text-white/[0.04] transition-colors">
+              <div className="absolute -bottom-4 -right-4 text-7xl font-black text-white/2 uppercase pointer-events-none group-hover:text-white/4 transition-colors">
                 Ekspedisi
               </div>
             </div>
@@ -260,13 +258,13 @@ export default function Home() {
 
           {/* Route Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {routeCards.map((card, idx) => (
-              <div key={idx} className="bg-gradient-to-b from-[#0e528b] via-[#083057] to-[#111111] rounded-[2rem] p-6 flex flex-col h-full border border-white/5 relative overflow-hidden group">
+            {routeCards.map((card) => (
+              <div key={card.city} className="bg-linear-to-b from-[#0e528b] via-[#083057] to-[#111111] rounded-[2rem] p-6 flex flex-col h-full border border-white/5 relative overflow-hidden group">
                 <h3 className="text-3xl font-black text-white text-center mb-6 tracking-widest">RUTE</h3>
                 
-                <div className="space-y-2 mb-8 flex-grow">
+                <div className="space-y-2 mb-8 grow">
                   {card.routes.map((route, rIdx) => (
-                    <div key={rIdx} className={`text-center py-2 px-2 rounded-full text-[10px] font-bold ${rIdx % 2 === 0 ? 'bg-white text-[#0A335C]' : 'bg-white/10 text-white border border-white/20'}`}>
+                    <div key={route} className={`text-center py-2 px-2 rounded-full text-[10px] font-bold ${rIdx % 2 === 0 ? 'bg-white text-[#0A335C]' : 'bg-white/10 text-white border border-white/20'}`}>
                       {route}
                     </div>
                   ))}
@@ -298,8 +296,8 @@ export default function Home() {
 
           {/* Bottom Tag Cloud Container */}
           <div className="bg-[#1A1A1A] rounded-[2rem] p-6 md:p-8 flex flex-wrap justify-center items-center gap-3 border border-white/5 max-w-5xl mx-auto">
-            {popularTags.map((tag, idx) => (
-              <div key={idx} className="bg-[#2A2A2A] hover:bg-yellow-500 hover:text-black transition-colors px-6 py-3 rounded-full text-[11px] font-bold text-slate-300 uppercase tracking-wider cursor-pointer border border-white/5 shadow-sm">
+            {popularTags.map((tag) => (
+              <div key={tag} className="bg-[#2A2A2A] hover:bg-yellow-500 hover:text-black transition-colors px-6 py-3 rounded-full text-[11px] font-bold text-slate-300 uppercase tracking-wider cursor-pointer border border-white/5 shadow-sm">
                 {tag}
               </div>
             ))}
@@ -312,34 +310,21 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12">
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {fleetData.map((fleet, idx) => (
-              <div key={idx} className="bg-[#1A1A1A] border border-white/5 rounded-2xl p-4 flex flex-col group hover:border-yellow-500/30 transition-colors">
+            {fleetData.map((fleet) => (
+              <div key={fleet.title} className="bg-[#1A1A1A] border border-white/5 rounded-2xl p-4 flex flex-col group hover:border-yellow-500/30 transition-colors">
                 
-                {/* Image Placeholder Container */}
-                <div className="bg-gradient-to-b from-[#1464A5] to-[#0A335C] aspect-square rounded-xl relative overflow-hidden flex flex-col items-center p-4 mb-5">
-                  <div className="w-full flex justify-between items-center opacity-70">
-                    <div className="w-4 h-1 bg-white rounded-full"></div>
-                    <div className="text-[6px] text-white border border-white/40 rounded-full px-2 py-0.5">JENDRAL</div>
-                  </div>
-                  
-                  {/* Decorative white dots/waves on the right edge */}
-                  <div className="absolute right-0 top-1/4 h-1/2 w-8 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxjaXJjbGUgY3g9IjMiIGN5PSIzIiByPSIxIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiLz48L3N2Zz4=')] opacity-50"></div>
-
-                  <h3 className="text-yellow-500 font-black text-3xl md:text-4xl tracking-tighter uppercase mt-4 transform scale-y-125 z-10 drop-shadow-md">
-                    {fleet.imageText}
-                  </h3>
-
-                  <div className="w-4/5 h-2/5 bg-white/10 mt-auto mb-4 rounded-lg shadow-2xl backdrop-blur-sm border border-white/20 flex items-center justify-center relative z-10 group-hover:bg-white/20 transition-colors">
-                    <Car className="w-12 h-12 text-white/80 drop-shadow-lg" />
-                  </div>
-
-                  <p className="text-[6px] text-white/70 mt-auto text-center w-full max-w-[80%] leading-tight">
-                    Solusi transportasi premier dengan standar eksekutif.
-                  </p>
+                {/* Image Container */}
+                <div className="bg-linear-to-b from-[#1464A5] to-[#0A335C] aspect-square rounded-xl relative overflow-hidden mb-5">
+                  <Image 
+                    src={fleet.image} 
+                    alt={fleet.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
 
                 {/* Card Content */}
-                <div className="px-2 pb-2 flex-grow flex flex-col">
+                <div className="px-2 pb-2 grow flex flex-col">
                   <div className="flex justify-between items-start mb-2 gap-2">
                     <h4 className="text-lg font-bold text-white leading-tight">{fleet.title}</h4>
                     <span className="bg-[#332f1f] text-yellow-500 rounded px-2 py-1 text-[9px] font-black whitespace-nowrap mt-1 border border-yellow-500/20">
@@ -397,11 +382,11 @@ export default function Home() {
                 Penyedia jasa transportasi eksekutif yang mengedepankan kepuasan dan keselamatan pelanggan di setiap perjalanan.
               </p>
               <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:border-yellow-500/50 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <a href="/" className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:border-yellow-500/50 transition-colors">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><title>Instagram Icon</title><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
-                <a href="#" className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:border-yellow-500/50 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <a href="/" className="w-10 h-10 rounded-lg bg-[#1A1A1A] border border-white/5 flex items-center justify-center text-slate-400 hover:text-yellow-500 hover:border-yellow-500/50 transition-colors">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><title>Facebook Icon</title><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
               </div>
             </div>
