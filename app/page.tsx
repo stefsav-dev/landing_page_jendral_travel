@@ -41,7 +41,7 @@ const fleetData = [
   { image: "/assets/bagian_12.png", imageText: "HIACE", title: "HIACE", capacity: "6 ORANG", desc: "Unit hemat dan handal untuk rute antarkota." },
   { image: "/assets/bagian_13.png", imageText: "LUXURY HIACE PREMIO", title: "Luxury Hiace Premio", capacity: "8 ORANG", desc: "Interior mewah VIP dengan Captain Seat." },
   { image: "/assets/bagian_14.png", imageText: "NEW AVANZA", title: "New Avanza", capacity: "7 ORANG", desc: "Kapasitas besar untuk rombongan wisata." },
-  { image: "/assets/bagian_15.png", imageText: "REBORN", title: "Reborn", desc: "Layanan ekspedisi barang volume besar." },
+  { image: "/assets/bagian_15.png", imageText: "REBORN", title: "Innova Reborn", desc: "Layanan ekspedisi barang volume besar." },
   { image: "/assets/bagian_16.png", imageText: "ALPHARD", title: "Alphard", capacity: "31 ORANG", desc: "Bus pariwisata medium dengan seat nyaman." },
 ];
 
