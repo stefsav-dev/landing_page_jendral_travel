@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Award, Car, Clock, Mail, MapPin, Medal, MessageSquare, PhoneCall, Wallet } from "lucide-react";
+import { Award, Car, Clock, Mail, MapPin, Medal, Menu, MessageSquare, PhoneCall, Wallet, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -46,6 +49,8 @@ const fleetData = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#0F172A] text-white overflow-hidden selection:bg-yellow-500/30">
       {/* Background Gradient Effect */}
@@ -55,23 +60,49 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="container mx-auto px-6 md:px-12 py-6 flex items-center justify-between z-10 relative">
-        <div className="text-2xl font-black tracking-widest uppercase flex items-center gap-2">
-          <span>JENDRAL</span>
-          <span className="text-yellow-500">TRAVEL</span>
-        </div>
-        
-        <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200">
-          <Link href="#" className="hover:text-yellow-500 transition-colors">Rute</Link>
-          <Link href="#" className="hover:text-yellow-500 transition-colors">Armada</Link>
-          <Link href="#" className="hover:text-yellow-500 transition-colors">Reguler</Link>
-          <Link href="#" className="hover:text-yellow-500 transition-colors">Carter</Link>
-          <Link href="#" className="hover:text-yellow-500 transition-colors">Ekspedisi</Link>
+      <nav className="container mx-auto px-6 md:px-12 py-6 z-50 relative">
+        <div className="flex items-center justify-between">
+          <div className="text-2xl font-black tracking-widest uppercase flex items-center gap-2">
+            <span>JENDRAL</span>
+            <span className="text-yellow-500">TRAVEL</span>
+          </div>
+          
+          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-200">
+            <Link href="#" className="hover:text-yellow-500 transition-colors">Rute</Link>
+            <Link href="#" className="hover:text-yellow-500 transition-colors">Armada</Link>
+            <Link href="#" className="hover:text-yellow-500 transition-colors">Reguler</Link>
+            <Link href="#" className="hover:text-yellow-500 transition-colors">Carter</Link>
+            <Link href="#" className="hover:text-yellow-500 transition-colors">Ekspedisi</Link>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button className="hidden md:inline-flex bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full px-6 transition-all shadow-[0_0_15px_rgba(234,179,8,0.2)] hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]">
+              Reservasi
+            </Button>
+            
+            <button 
+              className="lg:hidden text-slate-200 hover:text-yellow-500 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        <Button className="hidden md:inline-flex bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full px-6 transition-all shadow-[0_0_15px_rgba(234,179,8,0.2)] hover:shadow-[0_0_20px_rgba(234,179,8,0.4)]">
-          Reservasi
-        </Button>
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[#0F172A]/95 backdrop-blur-md border-b border-white/10 shadow-2xl py-6 px-6 flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200 rounded-b-2xl">
+            <Link href="#" className="text-lg font-medium text-slate-200 hover:text-yellow-500 transition-colors py-2 border-b border-white/5" onClick={() => setIsMobileMenuOpen(false)}>Rute</Link>
+            <Link href="#" className="text-lg font-medium text-slate-200 hover:text-yellow-500 transition-colors py-2 border-b border-white/5" onClick={() => setIsMobileMenuOpen(false)}>Armada</Link>
+            <Link href="#" className="text-lg font-medium text-slate-200 hover:text-yellow-500 transition-colors py-2 border-b border-white/5" onClick={() => setIsMobileMenuOpen(false)}>Reguler</Link>
+            <Link href="#" className="text-lg font-medium text-slate-200 hover:text-yellow-500 transition-colors py-2 border-b border-white/5" onClick={() => setIsMobileMenuOpen(false)}>Carter</Link>
+            <Link href="#" className="text-lg font-medium text-slate-200 hover:text-yellow-500 transition-colors py-2 border-b border-white/5" onClick={() => setIsMobileMenuOpen(false)}>Ekspedisi</Link>
+            <Button className="w-full mt-4 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-full py-6 text-lg transition-all shadow-[0_0_20px_rgba(234,179,8,0.25)]">
+              Reservasi Sekarang
+            </Button>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
