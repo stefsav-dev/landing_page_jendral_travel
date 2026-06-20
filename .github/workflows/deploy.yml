@@ -24,7 +24,7 @@ jobs:
             echo "=== Pulling latest changes ==="
             git pull origin main
             echo "=== Installing dependencies ==="
-            npm install --production
+            npm ci
             echo "=== Building Next.js app ==="
             npm run build
             echo "=== Restarting application ==="
