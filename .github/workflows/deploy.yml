@@ -10,8 +10,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.2.0 # Updated to latest
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js
+        run: npm run build
+
+      - name: Deploy to Server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: ".next/standalone/,.next/static/,public/"
+          target: "/var/www/jendral_travel/landing_page_jendral_travel"
+          overwrite: true
+
+      - name: Restart Application
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
@@ -21,14 +44,9 @@ jobs:
           script: |
             set -e
             cd /var/www/jendral_travel/landing_page_jendral_travel
-            echo "=== Pulling latest changes ==="
-            git pull origin main
-            echo "=== Installing dependencies ==="
-            npm install
-            echo "=== Building Next.js app ==="
-            NODE_OPTIONS="--max-old-space-size=512" npm run build
+            # Copy static files into standalone
+            cp -r .next/static .next/standalone/.next/
+            cp -r public .next/standalone/
             echo "=== Restarting application ==="
-            pm2 restart jendral_travel || pm2 start npm --name "jendral_travel" -- start
+            pm2 restart jendral_travel || pm2 start .next/standalone/server.js --name "jendral_travel"
             echo "=== Deployment complete ==="
-
-#testing coba ini
