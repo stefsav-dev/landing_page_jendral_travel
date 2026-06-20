@@ -8,10 +8,8 @@ export function Preloader() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Adding a small delay before starting to fade out to show the loading screen
     const timer = setTimeout(() => {
       setFading(true);
-      // Wait for the fade out transition to finish before removing from DOM
       setTimeout(() => setLoading(false), 500);
     }, 1200);
     
