@@ -17,7 +17,16 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          script_stop: true
           script: |
+            set -e
             cd /var/www/jendral_travel
+            echo "=== Pulling latest changes ==="
             git pull origin main
-            # Your deployment commands here
+            echo "=== Installing dependencies ==="
+            npm install --production
+            echo "=== Building Next.js app ==="
+            npm run build
+            echo "=== Restarting application ==="
+            pm2 restart jendral_travel || pm2 start npm --name "jendral_travel" -- start
+            echo "=== Deployment complete ==="
