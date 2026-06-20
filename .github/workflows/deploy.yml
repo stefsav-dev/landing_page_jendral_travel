@@ -20,7 +20,7 @@ jobs:
           script_stop: true
           script: |
             set -e
-            cd /var/www/jendral_travel
+            cd /var/www/jendral_travel/landing_page_jendral_travel
             echo "=== Pulling latest changes ==="
             git pull origin main
             echo "=== Installing dependencies ==="
