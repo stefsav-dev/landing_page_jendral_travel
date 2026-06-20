@@ -42,6 +42,7 @@ jobs:
           port: 22
           script_stop: true
           script: |
+            export PATH=$PATH:/usr/local/bin:/usr/bin
             set -e
             cd /var/www/jendral_travel/landing_page_jendral_travel
             # Copy static files into standalone
