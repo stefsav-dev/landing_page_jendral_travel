@@ -24,9 +24,9 @@ jobs:
             echo "=== Pulling latest changes ==="
             git pull origin main
             echo "=== Installing dependencies ==="
-            npm ci
+            npm install
             echo "=== Building Next.js app ==="
-            npm run build
+            NODE_OPTIONS="--max-old-space-size=512" npm run build
             echo "=== Restarting application ==="
             pm2 restart jendral_travel || pm2 start npm --name "jendral_travel" -- start
             echo "=== Deployment complete ==="
